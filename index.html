@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nomad Trips — Holiday Packages (Clone)</title>
+  <meta name="description" content="Responsive demo clone layout for a travel agency — packages, contact, and hero." />
+  <style>
+    /* Basic reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--accent:#ff7a18;--dark:#0f1724;--muted:#6b7280}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;line-height:1.5;color:var(--dark);background:#f8fafc}
+    a{text-decoration:none;color:inherit}
+    header{background:linear-gradient(90deg, rgba(255,122,24,0.08), rgba(255,122,24,0));backdrop-filter:blur(4px)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* nav */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffb86b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav ul{display:flex;gap:16px;align-items:center;list-style:none}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .hero-left h1{font-size:34px;margin-bottom:12px}
+    .hero-left p{color:var(--muted);margin-bottom:18px}
+    .search-card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(12,20,30,0.06)}
+    .search-row{display:flex;gap:8px}
+    .search-row input, .search-row select{flex:1;padding:10px;border-radius:8px;border:1px solid #e6e9ef}
+
+    /* packages */
+    .section{padding:36px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(12,20,30,0.05);display:flex;flex-direction:column}
+    .card img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .card h3{font-size:16px;margin-bottom:6px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .card .price{margin-top:auto;font-weight:700}
+
+    /* features */
+    .features{display:flex;gap:14px;flex-wrap:wrap}
+    .feature{background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(12,20,30,0.04);min-width:160px}
+
+    /* contact */
+    footer{padding:28px 0;color:var(--muted)}
+    .footer-grid{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .search-card{margin-top:12px}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">NT</div>
+        <div>
+          <div style="font-weight:700">Nomad Trips</div>
+          <div style="font-size:12px;color:var(--muted)">Holiday Packages • India</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn" href="#contact">Book Now</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Discover curated trips across India</h1>
+        <p>From Himalayan treks to desert safaris — personalized itineraries, reliable local partners, and flexible departures.</p>
+
+        <div class="features" aria-hidden>
+          <div class="feature">
+            <strong>Custom itineraries</strong>
+            <div style="font-size:13px;color:var(--muted)">Tailor-made trips for couples, friends and families</div>
+          </div>
+          <div class="feature">
+            <strong>Trusted partners</strong>
+            <div style="font-size:13px;color:var(--muted)">Verified hotels & local guides</div>
+          </div>
+          <div class="feature">
+            <strong>24/7 Support</strong>
+            <div style="font-size:13px;color:var(--muted)">Emergency assistance while traveling</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" class="search-card">
+          <form onsubmit="event.preventDefault();alert('Search submitted — demo only')">
+            <div class="search-row">
+              <input placeholder="Where do you want to go? (e.g. Manali, Jaipur)" />
+              <select>
+                <option>2 nights</option>
+                <option>3 nights</option>
+                <option>4 nights</option>
+                <option>5+ nights</option>
+              </select>
+              <button class="btn" type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <aside>
+        <div style="background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=') center/cover;height:320px;border-radius:12px;box-shadow:0 12px 28px rgba(12,20,30,0.08)"></div>
+      </aside>
+    </section>
+
+    <section id="packages" class="section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+        <h2>Popular Packages</h2>
+        <a href="#" style="font-size:14px;color:var(--accent);font-weight:600">View all</a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Manali" />
+          <h3>Manali — 4N / 5D</h3>
+          <div class="meta">Start from Delhi • Adventure & Sightseeing</div>
+          <div style="display:flex;gap:8px;margin-bottom:10px;font-size:13px;color:var(--muted)">
+            <div>Volvo / Private</div><div>Hotels (twin)</div>
+          </div>
+          <div class="price">₹8,499 / person</div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Jaipur" />
+          <h3>Rajasthan — 5N / 6D</h3>
+          <div class="meta">Jaipur • Jodhpur • Jaisalmer</div>
+          <div class="price">₹12,999 / person</div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Goa" />
+          <h3>Goa Beach Escape — 3N / 4D</h3>
+          <div class="meta">Beaches • Water Sports • Nightlife</div>
+          <div class="price">₹6,499 / person</div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Valley" />
+          <h3>Himachal Adventure — 6N / 7D</h3>
+          <div class="meta">Trekking • Camping • Villages</div>
+          <div class="price">₹15,499 / person</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Nomad Trips</h2>
+      <p style="color:var(--muted);margin-top:8px;max-width:780px">This is a simple, responsive HTML/CSS clone layout intended to replicate the visual structure of a travel packages site. Replace images, copy and prices with real content. Add backend booking, payment gateway and review integrations when converting to production.</p>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div style="max-width:420px">
+          <h3 style="margin-bottom:8px">Nomad Trips (Demo)</h3>
+          <div style="color:var(--muted);font-size:14px">Email: hello@nomadtrips.example · Phone: +91-98765-43210</div>
+        </div>
+        <div style="min-width:220px">
+          <h4>Quick Links</h4>
+          <div style="color:var(--muted);margin-top:8px">Packages · About · Contact · Terms</div>
+        </div>
+        <div style="min-width:220px">
+          <h4>Send enquiry</h4>
+          <form onsubmit="event.preventDefault();alert('Enquiry sent (demo)')" style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+            <input placeholder="Your name" style="padding:8px;border:1px solid #e6e9ef;border-radius:8px" />
+            <input placeholder="Phone or email" style="padding:8px;border:1px solid #e6e9ef;border-radius:8px" />
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eef2f6;margin-top:20px;padding-top:16px;color:var(--muted);font-size:13px">© Nomad Trips — Demo clone. Use this code to build and test your own website.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Small scripts for demo: no external libs
+    // (1) simple mobile nav toggle could be added here in future
+  </script>
+</body>
+</html>
